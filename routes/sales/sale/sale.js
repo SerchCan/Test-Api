@@ -35,7 +35,7 @@ router.post('/',(req,res,next)=>{
                 }
             });
         }
-        res.json({message: "Vendido correctamente"});
+        res.json({code:201, message: "Vendido correctamente"});
     });
     // Inserta a tabla ventas
     

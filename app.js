@@ -4,9 +4,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-var storage = require('./routes/storage/storage');
-var sales = require('./routes/sales/sales');
-var factures = require('./routes/factures/factures');
+var storage = require('./NewRoutes/Almacen/Almacen');
+var sales = require('./NewRoutes/Ventas/Venta');
+var factures = require('./NewRoutes/Facturas/Facturas');
 var app = express();
 
 app.use(bodyParser.json());

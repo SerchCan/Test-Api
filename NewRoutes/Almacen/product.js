@@ -14,7 +14,7 @@ router.get('/',(req,res,next)=>{
 // Find a product in database
 router.get('/:barcode',async(req,res,next)=>{
     var barcode=req.params.barcode;
-    var query="SELECT * FROM almacen WHERE BARCODE=? LIMIT 1 ";
+    var query="SELECT * FROM almacen WHERE BARCODE=$1 LIMIT 1 ";
     try{
         const product= await pool.connect();
         const result=product.query(query,[barcode]);

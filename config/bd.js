@@ -1,7 +1,13 @@
-var connection ={
+/*var connection ={
     host: 'localhost',
     user: 'root',
     password: '',
     database : 'devstore',
-};
-module.exports=connection;
+};*/
+const { Pool } = require('pg');
+const pool= new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});
+
+module.exports=pool;

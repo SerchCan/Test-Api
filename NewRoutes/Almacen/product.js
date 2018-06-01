@@ -5,13 +5,14 @@ var mysql=require('mysql');
 var bd= require('../../config/bd');
 var connection = mysql.createConnection(bd);
 */
+
 var pool= require('../../config/bd');
 
 router.get('/',(req,res,next)=>{
     res.json({error:404, message: "Olvido el parametro [barcode]"});
 })
 // Find a product in database
-router.get('/:barcode',(req,res,next)=>{
+router.get('/:barcode',async(req,res,next)=>{
     var barcode=req.params.barcode;
     var query="SELECT * FROM almacen WHERE BARCODE=? LIMIT 1 ";
     try{

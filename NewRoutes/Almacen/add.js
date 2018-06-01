@@ -11,7 +11,7 @@ var con=mysql.createConnection(bd);
 /**
  * Add product to storage
  */
-router.post('/',(req,res,next)=>{
+router.post('/',async (req,res,next)=>{
     let barcode= req.body.barcode;
     let producto= req.body.producto;
     let cant= req.body.cant;

@@ -17,8 +17,9 @@ router.get('/:barcode', async(req,res,next)=>{
     var query="SELECT * FROM almacen WHERE BARCODE=$1 LIMIT 1;";
     try{
         const product= await pool.connect();
-        const result=product.query(query,[barcode]);
-        res.json({code:200,response:result});
+        const ret=product.query(query,[barcode]).then((result)=>{
+            res.json({code:200,response:result});
+        });
         product.release();
     }
     catch(err){
